@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {Group} from '../../core/models/group.model';
 import {Student} from '../../core/models/student.model';
 import {ApiService} from '../../core/services/api.service';
+import {ChangeDetectorRef} from '@angular/core';
 
 @Component({
   selector: 'app-group-list',
@@ -14,7 +15,11 @@ export class GroupListComponent implements OnInit {
 
   groups: Group[] = [];
 
-  constructor(private apiService: ApiService,private router: Router) {
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+    ) {
   }
 
 
@@ -23,6 +28,7 @@ export class GroupListComponent implements OnInit {
     console.log('API: ',data);
     this.groups = data.map(g => ({...g, id: Number(g.id)}));
     console.log('Groups:', this.groups);
+    this.cdr.detectChanges();
   });
   }
 

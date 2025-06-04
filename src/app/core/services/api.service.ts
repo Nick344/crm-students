@@ -17,7 +17,7 @@ private readonly  baseUrl = 'https://68406c595b39a8039a580639.mockapi.io/api/v1'
   }
 
   getStudentByGroup(groupId: number): Observable<Student[]> {
-    return this.http.get<Student[]>(`${this.baseUrl}/students&groupId=${groupId}`);
+    return this.http.get<Student[]>(`${this.baseUrl}/students?groupId=${groupId}`);
   }
 
   addStudent(student: Student): Observable<Student> {

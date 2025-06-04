@@ -1,9 +1,6 @@
 <h2>Список групп</h2>
-<pre>{{groups | json}}</pre>
-<div *ngIf="groups.length > 0">
 <ul>
  <li *ngFor="let group of groups" (click)="goToGroup(group.id)">
    {{group.name}}
  </li>
 </ul>
-</div>
