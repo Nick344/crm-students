@@ -3,4 +3,6 @@
  <li *ngFor="let group of groups" (click)="goToGroup(group.id)">
    {{group.name}}
  </li>
+  <input [(ngModel)]="groupId" placeholder="Group's ID">
+  <button (click)="RemoveGroup()">Remove group</button>
 </ul>

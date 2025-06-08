@@ -30,5 +30,8 @@ private readonly  baseUrl = 'https://68406c595b39a8039a580639.mockapi.io/api/v1'
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(`${this.baseUrl}/students`);
   }
+  deleteGroup(id: number | null): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/groups/${id}`);
+  }
 }
 

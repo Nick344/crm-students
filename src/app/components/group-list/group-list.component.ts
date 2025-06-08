@@ -14,6 +14,7 @@ import {ChangeDetectorRef} from '@angular/core';
 export class GroupListComponent implements OnInit {
 
   groups: Group[] = [];
+  groupId!: number | null;
 
   constructor(
     private apiService: ApiService,
@@ -36,4 +37,14 @@ export class GroupListComponent implements OnInit {
     this.router.navigate(['group', groupId]);
   }
 
+  RemoveGroup() {
+    console.log(this.groupId);
+    this.apiService.deleteGroup(this.groupId).subscribe(data => {
+      this.apiService.getGroups().subscribe(groups => {
+        this.groups = groups;
+        this.cdr.detectChanges();
+      })
+      this.groupId = null;
+    })
+  }
 }
