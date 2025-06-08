@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Student} from '../models/student.model';
+import {Student, StudentModel} from '../models/student.model';
 import {Group} from '../models/group.model';
 
 @Injectable({
@@ -20,13 +20,15 @@ private readonly  baseUrl = 'https://68406c595b39a8039a580639.mockapi.io/api/v1'
     return this.http.get<Student[]>(`${this.baseUrl}/students?groupId=${groupId}`);
   }
 
-  addStudent(student: Student): Observable<Student> {
+  addStudent(student: StudentModel): Observable<Student> {
     return this.http.post<Student>(`${this.baseUrl}/students`,student);
   }
 
-  deleteStudent(id: number): Observable<void> {
+  deleteStudent(id: number | null): Observable<void> {
      return this.http.delete<void>(`${this.baseUrl}/students/${id}`);
   }
-
+  getStudents(): Observable<Student[]> {
+    return this.http.get<Student[]>(`${this.baseUrl}/students`);
+  }
 }
 

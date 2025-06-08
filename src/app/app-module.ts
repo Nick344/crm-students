@@ -6,18 +6,20 @@ import { App } from './app';
 import { GroupDetailComponent } from './components/group-detail/group-detail.component';
 import {GroupListComponent} from './components/group-list/group-list.component';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     App,
     GroupListComponent,
-    GroupDetailComponent
+    GroupDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

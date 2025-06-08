@@ -1,6 +1,17 @@
-<h2>Students' group {{groupId}}</h2>
+<h2>Students' group {{groupName}}</h2>
 <ul>
+  <div class="group-list__student">
   <li *ngFor="let student of students">
     {{student.name}}
   </li>
+    <form>
+      <label >
+        Name:
+        <input [(ngModel)]="studentName" name="name">
+      </label>
+      <button (click)="addStudent()">Add student</button>
+    </form>
+    <input [(ngModel)]="studentId" placeholder="Write student's ID">
+    <button (click)="deleteStudent()">Remove student</button>
+  </div>
 </ul>

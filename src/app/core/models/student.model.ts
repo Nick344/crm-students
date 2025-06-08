@@ -1,6 +1,10 @@
 export interface Student {
   id: number;
   name: string;
-  age: number;
+  groupId: number;
+}
+
+export interface StudentModel {
+  name: string;
   groupId: number;
 }
